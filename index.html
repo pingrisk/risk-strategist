@@ -14,6 +14,7 @@
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); } }
         .fatal-text { color: #f87171; font-weight: bold; }
         .safe-text { color: #4ade80; font-weight: bold; }
+        .case-tag { font-size: 8px; background: rgba(59, 130, 246, 0.1); color: #60a5fa; padding: 1px 4px; border-radius: 4px; margin-left: 4px; border: 1px solid rgba(59, 130, 246, 0.2); }
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
     </style>
@@ -23,7 +24,6 @@
     <!-- 背景裝飾 -->
     <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none opacity-20">
         <div class="absolute top-10 left-10 text-[8px] tracking-[0.5em] uppercase vertical-text">Evidence Based Risk Management</div>
-        <div class="absolute bottom-10 right-10 text-[8px] tracking-[0.5em] uppercase vertical-text">Professional Defense Strategy</div>
     </div>
 
     <!-- 頂部區 -->
@@ -33,163 +33,193 @@
                 <div class="w-24 h-24 rounded-full border-2 border-blue-500/50 p-1">
                     <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
                         <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.2" class="w-12 h-12">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <circle cx="12" cy="11" r="3"/>
-                            <path d="M12 11v4"/>
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/><path d="M12 11v4"/>
                         </svg>
                     </div>
                 </div>
-                <div class="absolute -bottom-2 -right-2 bg-blue-600 text-[8px] font-bold px-2 py-1 rounded text-white border border-slate-900 uppercase">Verified</div>
+                <div class="absolute -bottom-2 -right-2 bg-blue-600 text-[8px] font-bold px-2 py-1 rounded text-white border border-slate-900 uppercase">Certified Expert</div>
             </div>
         </div>
         <h1 class="text-3xl font-bold mb-3 tracking-tighter text-white">Ping | 教練風險軍師</h1>
-        <div class="flex justify-center space-x-2 mb-6">
-            <span class="text-[9px] bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-blue-400 font-bold uppercase tracking-widest">運醫背景</span>
-            <span class="text-[9px] bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-blue-400 font-bold uppercase tracking-widest">行政法務</span>
-            <span class="text-[9px] bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-blue-400 font-bold uppercase tracking-widest">風險控管</span>
-        </div>
+        <p class="text-blue-400 text-xs font-bold uppercase tracking-[0.3em] mb-6">運醫背景 × 人事行政 × 判決拆解</p>
         <div class="flex justify-center mb-4">
             <div class="bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full flex items-center space-x-2">
                 <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></span>
-                <span class="text-[10px] text-blue-200 font-medium">已累積 16 位教練索取「防禦大禮包」| 24+ 位關注中</span>
+                <span class="text-[10px] text-blue-200 font-medium">已有 16 位教練索取「防禦大禮包」| 27+ 追蹤中</span>
             </div>
         </div>
     </header>
 
-    <!-- 核心行動：防禦大禮包 -->
+    <!-- 核心引流區 -->
     <section class="px-6 mb-16 max-w-md mx-auto">
         <div class="glass-card rounded-[2.5rem] p-8 border border-white/10 shadow-2xl relative overflow-hidden">
-            <h2 class="text-white font-bold text-xl mb-4 text-center">🛡️ 教練風險防禦大禮包</h2>
+            <h2 class="text-white font-bold text-xl mb-4 text-center">🛡️ 教練職業風險防禦大禮包</h2>
             <ul class="text-[11px] text-slate-400 space-y-2 mb-8 list-none px-2">
                 <li class="flex items-center"><svg class="w-3 h-3 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> 5 點避雷檢查表 (PDF)</li>
                 <li class="flex items-center"><svg class="w-3 h-3 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> 法律保命語法指南 (V2.0)</li>
-                <li class="flex items-center"><svg class="w-3 h-3 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> 課後放鬆行政留證 SOP 範本</li>
+                <li class="flex items-center"><svg class="w-3 h-3 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> 課前評估表範本 (行政解套關鍵)</li>
             </ul>
             <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="pulse-border block w-full accent-gradient text-white text-center py-5 rounded-2xl font-bold text-sm shadow-xl shadow-blue-900/40 transition-all hover:scale-[1.02] active:scale-95">
-                點此填表．免費索取大禮包
+                點此填表．一次索取完整資源
             </a>
-            <p class="text-[9px] text-center text-slate-500 mt-4 tracking-tighter uppercase italic">Protect your career before it's too late</p>
+            <p class="text-[9px] text-center text-slate-500 mt-4 tracking-tighter uppercase italic">Stay professional, stay safe</p>
         </div>
     </section>
 
-    <!-- 司法預警：紅線資料庫 -->
+    <!-- 司法預警：保命語法庫 -->
     <section class="px-6 mb-16 max-w-md mx-auto">
-        <div class="flex justify-between items-end mb-6 px-2">
+        <div class="flex justify-between items-end mb-6 px-2 border-b border-white/5 pb-2">
             <h2 class="text-xl font-bold flex items-center">
                 <span class="w-2 h-8 bg-blue-600 rounded-full mr-4 shadow-[0_0_15px_rgba(37,99,235,0.6)]"></span>
                 法律保命語法庫
             </h2>
-            <span class="text-[9px] text-slate-500 pb-1">DATABASE V4.0</span>
+            <span class="text-[9px] text-slate-500 pb-1 italic">DATABASE V4.4</span>
         </div>
         
-        <div class="space-y-6">
-            <!-- 司法警示區 -->
-            <div class="bg-red-500/5 border border-red-500/20 p-5 rounded-3xl">
-                <h3 class="text-red-400 text-[10px] font-bold mb-2 flex items-center uppercase tracking-wider">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    司法準則：實質重於形式
-                </h3>
-                <p class="text-slate-400 text-[10px] leading-relaxed">
-                    根據 **110 醫上訴 945 號** 裁定：即使使用「鬆筋、優化」等去醫療化詞彙，只要行為實質具備治療、矯正意圖，法院仍會認定為**「非法醫療行為」**。包裝話術並非萬能藥。
-                </p>
-            </div>
-
+        <div class="space-y-4">
             <!-- 維度 A -->
-            <div class="glass-card rounded-3xl overflow-hidden border border-white/5">
-                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold text-[10px] uppercase tracking-widest">
-                    維度 A：動作與處置
+            <div class="glass-card rounded-3xl overflow-hidden border border-white/5 text-[11px]">
+                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold uppercase tracking-widest">
+                    A. 動作與處置
                 </div>
-                <table class="w-full text-left text-[11px]">
+                <table class="w-full text-left">
                     <tbody class="divide-y divide-white/5">
                         <tr>
-                            <td class="px-5 py-4 fatal-text">喬、復位、治癒、矯正</td>
-                            <td class="px-5 py-4 safe-text text-right">排列調整、優化流暢度</td>
+                            <td class="px-5 py-4 fatal-text">
+                                喬 / 復位 / 整骨 <span class="case-tag">Case 1 & 3</span>
+                            </td>
+                            <td class="px-5 py-4 safe-text text-right font-medium">排列調整 / 姿勢建立</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4 fatal-text">
+                                診斷 / 治療 / 處方 <span class="case-tag">Case 2 & 5</span>
+                            </td>
+                            <td class="px-5 py-4 safe-text text-right font-medium">動作篩查 / 訓練計畫</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <!-- 維度 B -->
-            <div class="glass-card rounded-3xl overflow-hidden border border-white/5">
-                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold text-[10px] uppercase tracking-widest">
-                    維度 B：稱謂與場域
+            <div class="glass-card rounded-3xl overflow-hidden border border-white/5 text-[11px]">
+                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold uppercase tracking-widest">
+                    B. 行政留證防禦
                 </div>
-                <table class="w-full text-left text-[11px]">
+                <table class="w-full text-left">
                     <tbody class="divide-y divide-white/5">
                         <tr>
-                            <td class="px-5 py-4 fatal-text">院長、處方、病歷表</td>
-                            <td class="px-5 py-4 safe-text text-right">負責人、計畫、評估紀錄</td>
+                            <td class="px-5 py-4 fatal-text italic opacity-60">口頭問病史</td>
+                            <td class="px-5 py-4 safe-text text-right font-medium text-blue-300">
+                                課前 20min 評估表<br>
+                                <span class="case-tag text-blue-400">113 易 1416 解套關鍵</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <!-- 維度 C -->
-            <div class="glass-card rounded-3xl overflow-hidden border border-white/5">
-                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold text-[10px] uppercase tracking-widest">
-                    維度 C：器材與輔具
-                </div>
-                <table class="w-full text-left text-[11px]">
-                    <tbody class="divide-y divide-white/5">
-                        <tr>
-                            <td class="px-5 py-4 fatal-text">矯正鞋墊、藥物建議</td>
-                            <td class="px-5 py-4 safe-text text-right">轉介醫事人員評估</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="p-4 bg-blue-500/5 rounded-2xl border border-blue-500/10">
-                <p class="text-[10px] text-blue-300 leading-relaxed italic text-center">
-                    💡 專家警告：場域內擺放「診視床」或「穿著白袍」會被視為加重定罪之積極證據。
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- 深度解析模組 -->
-    <section class="px-6 mb-20 max-w-md mx-auto">
+    <!-- 關鍵判決解析庫 (終極擴充版) -->
+    <section class="px-6 mb-24 max-w-md mx-auto">
         <h2 class="text-xl font-bold mb-8 flex items-center px-2">
             <span class="w-2 h-8 bg-blue-600 rounded-full mr-4 shadow-[0_0_15px_rgba(37,99,235,0.6)]"></span>
-            關鍵案例深度解析
+            案例深度解析庫
         </h2>
         
         <div class="space-y-4">
+            <!-- Case 1: 113 易 1416 (無罪) -->
             <details class="glass-card rounded-[2rem] border border-white/5 overflow-hidden group">
                 <summary class="p-8 cursor-pointer">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="text-[9px] bg-red-600 text-white px-2 py-0.5 rounded font-bold tracking-widest uppercase">Case 113-訴-1196</span>
-                        <svg class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <span class="text-[9px] bg-green-600 text-white px-2 py-0.5 rounded font-bold uppercase tracking-widest">113-易-1416 (無罪)</span>
+                        <svg class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 leading-tight text-white">「開胸椎」案的法律定罪邏輯</h3>
-                    <p class="text-slate-400 text-[11px] leading-relaxed">為何懂解剖不等於有執法權？解析法官眼中的「主觀犯意」與「客觀宣稱」。</p>
+                    <h3 class="text-lg font-bold mb-3 leading-tight text-white">滾筒導致肋骨痛：為什麼「20 分鐘評估」能救你？</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">當學員受傷，教練如何透過「行政紀錄」證明自己已盡專業義務。</p>
                 </summary>
-                
-                <div class="px-8 pb-8 space-y-6 border-t border-white/5 pt-6 text-[11px]">
-                    <div class="space-y-3">
-                        <h4 class="font-bold text-blue-400 uppercase tracking-widest">⚖️ 定罪關鍵 1：主觀犯意</h4>
-                        <p class="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-2xl border border-white/5">
-                            行為是否具備「治療、矯正或預防疾病、傷害」之目的？即便教練自認在教學，只要目的是處理學員傷病，即具備醫療意圖。
+                <div class="px-8 pb-8 space-y-4 border-t border-white/5 pt-6 text-[11px]">
+                    <div class="bg-blue-500/5 p-4 rounded-2xl border border-blue-500/20">
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong class="text-blue-400">解套關鍵：</strong> 法官認定教練在課前確實進行了身體功能評估並填寫紀錄表。這份「白紙黑字」的紀錄，直接擊碎了學員對教練「疏於注意」的指控。
                         </p>
                     </div>
+                </div>
+            </details>
 
-                    <div class="space-y-3">
-                        <h4 class="font-bold text-blue-400 uppercase tracking-widest">⚖️ 定罪關鍵 2：客觀宣稱</h4>
-                        <p class="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-2xl border border-white/5">
-                            客觀上是否有明確「宣稱療效」？只要言詞暗示能解決生理問題（如：醫治背痛），即便未開藥，亦屬非法醫療行為。
+            <!-- Case 2: 113 訴 1196 (勝訴) -->
+            <details class="glass-card rounded-[2rem] border border-white/5 overflow-hidden group">
+                <summary class="p-8 cursor-pointer">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[9px] bg-blue-600 text-white px-2 py-0.5 rounded font-bold uppercase tracking-widest">113-訴-1196 (勝訴)</span>
+                        <svg class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 leading-tight text-white">開胸椎案：生物力學是你的終極護盾</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">學員確診頸椎突出，醫學鑑定如何證明教練「非肇因」？</p>
+                </summary>
+                <div class="px-8 pb-8 space-y-4 border-t border-white/5 pt-6 text-[11px]">
+                    <div class="bg-blue-500/5 p-4 rounded-2xl border border-blue-500/20">
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong class="text-blue-400">專業防禦：</strong> 醫學鑑定指出，頸部後仰動作在解剖學上極難導致椎間盤「向後」突出。懂生理力學，就能在法庭上戳破因果關係的假象。
                         </p>
                     </div>
+                </div>
+            </details>
 
-                    <div class="bg-green-500/5 border border-green-500/20 p-5 rounded-3xl">
-                        <h4 class="font-bold text-green-400 mb-2 uppercase tracking-widest">🛡️ 法律避風港</h4>
-                        <p class="text-slate-300 leading-relaxed italic">
-                            判例指出：若目的僅為「紓解筋骨、恢復疲勞、動作評估」，且未宣稱醫療效果，則不構成違法。這是教練的唯一安全活動區。
+            <!-- Case 3: 112 醫上訴 5 (有罪) -->
+            <details class="glass-card rounded-[2rem] border border-white/5 overflow-hidden group">
+                <summary class="p-8 cursor-pointer">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[9px] bg-red-600 text-white px-2 py-0.5 rounded font-bold uppercase tracking-widest">112-醫上訴-5 (有罪)</span>
+                        <svg class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 leading-tight text-white">整脊與整骨：非醫事人員的終極紅線</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed text-red-300">即便領有整復證照，只要觸碰「脊椎調整」，刑事風險即刻生效。</p>
+                </summary>
+                <div class="px-8 pb-8 space-y-4 border-t border-white/5 pt-6 text-[11px]">
+                    <div class="bg-red-500/5 p-4 rounded-2xl border border-red-500/20">
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong class="text-red-400">致命點：</strong> 法官採取「穿透式觀察」。不論你廣告叫「鬆筋」還是「調理」，只要實質操作關節排列，就是違法執行醫療業務。
                         </p>
                     </div>
+                </div>
+            </details>
 
-                    <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="block w-full text-center py-4 bg-blue-600/10 text-blue-400 rounded-2xl font-bold text-[10px] mt-6 border border-blue-600/20 uppercase tracking-widest hover:bg-blue-600/20 transition-all">
-                        獲取此案完整行政留證 SOP ➔
-                    </a>
+            <!-- Case 4: 114 聲自 72 (駁回) -->
+            <details class="glass-card rounded-[2rem] border border-white/5 overflow-hidden group">
+                <summary class="p-8 cursor-pointer">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[9px] bg-purple-600 text-white px-2 py-0.5 rounded font-bold tracking-widest uppercase">114-聲自-72 (駁回)</span>
+                        <svg class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 leading-tight text-white">InBody 數據不是你的「診斷保險」</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">學員受傷告教練安排過重，法院如何認定 InBody 的法律位階？</p>
+                </summary>
+                <div class="px-8 pb-8 space-y-4 border-t border-white/5 pt-6 text-[11px]">
+                    <div class="bg-slate-800 p-4 rounded-2xl border border-white/5">
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong class="text-blue-400">軍師解析：</strong> 法院認定 InBody 僅供菜單規劃參考。若學員在運動當下未及時示警，受傷風險應由雙方共同分擔。這突顯了「課中溝通留證」的重要性。
+                        </p>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Case 5: 109 醫上易 2 (無罪) -->
+            <details class="glass-card rounded-[2rem] border border-white/5 overflow-hidden group">
+                <summary class="p-8 cursor-pointer">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[9px] bg-green-600 text-white px-2 py-0.5 rounded font-bold tracking-widest uppercase">109-醫上易-2 (無罪)</span>
+                        <svg class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 leading-tight text-white">運動諮詢與社會常情：安全的操作邊界</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">教練提供諮詢與手法放鬆，為何法院判定「非醫療行為」？</p>
+                </summary>
+                <div class="px-8 pb-8 space-y-4 border-t border-white/5 pt-6 text-[11px]">
+                    <div class="bg-blue-500/5 p-4 rounded-2xl border border-blue-500/20">
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong class="text-green-400">保命點：</strong> 被告強調服務為「放鬆」而非「治療」。法院認定其行為屬社會常情容許之非醫療範疇。結論：正確的「身分定位」能幫你擋掉 90% 的密醫檢舉。
+                        </p>
+                    </div>
                 </div>
             </details>
         </div>
