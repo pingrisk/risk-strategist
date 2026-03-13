@@ -7,158 +7,187 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f1f5f9; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .accent-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #020617; color: #f8fafc; }
+        .glass-card { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.1); }
+        .accent-gradient { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); }
         .pulse-border { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
-        .fatal-text { color: #f87171; font-weight: 700; }
-        .safe-text { color: #4ade80; font-weight: 700; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); } }
+        .fatal-text { color: #f87171; font-weight: bold; }
+        .safe-text { color: #4ade80; font-weight: bold; }
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
-<body class="min-h-screen pb-32">
+<body class="min-h-screen pb-40">
 
     <!-- 背景裝飾 -->
-    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden text-slate-900/20 text-[10px] select-none pointer-events-none">
-        <div class="absolute top-0 left-0 tracking-widest px-4 pt-2 uppercase">Risk Management | Legal Compliance | Professional Coaching</div>
+    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none opacity-20">
+        <div class="absolute top-10 left-10 text-[8px] tracking-[0.5em] uppercase vertical-text">Evidence Based Risk Management</div>
+        <div class="absolute bottom-10 right-10 text-[8px] tracking-[0.5em] uppercase vertical-text">Professional Defense Strategy</div>
     </div>
 
     <!-- 頂部區 -->
-    <header class="pt-16 pb-8 px-6 text-center">
-        <div class="flex justify-center mb-6">
-            <div class="w-24 h-24 rounded-full border-2 border-blue-500/30 p-1">
-                <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.2" class="w-12 h-12"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/><path d="M12 11v4"/></svg>
+    <header class="pt-20 pb-10 px-6 text-center">
+        <div class="flex justify-center mb-8">
+            <div class="relative">
+                <div class="w-24 h-24 rounded-full border-2 border-blue-500/50 p-1">
+                    <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.2" class="w-12 h-12">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <circle cx="12" cy="11" r="3"/>
+                            <path d="M12 11v4"/>
+                        </svg>
+                    </div>
                 </div>
+                <div class="absolute -bottom-2 -right-2 bg-blue-600 text-[8px] font-bold px-2 py-1 rounded text-white border border-slate-900 uppercase">Verified</div>
             </div>
         </div>
-        <h1 class="text-3xl font-bold mb-2 tracking-tighter text-white">Ping | 教練風險軍師</h1>
-        <div class="flex justify-center space-x-2 mb-4 text-[10px]">
-            <span class="bg-blue-500/10 border border-blue-500/30 px-2 py-0.5 rounded text-blue-400">運醫背景</span>
-            <span class="bg-blue-500/10 border border-blue-500/30 px-2 py-0.5 rounded text-blue-400">人事行政</span>
-            <span class="bg-blue-500/10 border border-blue-500/30 px-2 py-0.5 rounded text-blue-400">風險控管</span>
+        <h1 class="text-3xl font-bold mb-3 tracking-tighter text-white">Ping | 教練風險軍師</h1>
+        <div class="flex justify-center space-x-2 mb-6">
+            <span class="text-[9px] bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-blue-400 font-bold uppercase tracking-widest">運醫背景</span>
+            <span class="text-[9px] bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-blue-400 font-bold uppercase tracking-widest">行政法務</span>
+            <span class="text-[9px] bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-blue-400 font-bold uppercase tracking-widest">風險控管</span>
         </div>
         <div class="flex justify-center mb-4">
-            <div class="bg-green-500/10 border border-green-500/30 px-4 py-1 rounded-full flex items-center space-x-2">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-                <span class="text-[11px] text-green-400 font-bold">已有 16 位教練加入防禦基地 | 24+ 位關注中</span>
+            <div class="bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full flex items-center space-x-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                <span class="text-[10px] text-blue-200 font-medium">已累積 16 位教練索取「防禦大禮包」| 24+ 位關注中</span>
             </div>
         </div>
     </header>
 
-    <!-- 核心行動 -->
-    <section class="px-6 mb-12 max-w-md mx-auto">
-        <a href="https://drive.google.com/drive/folders/12JAavgCYiiXHHXcUdsLjFh0m5ogsdcBq?usp=drive_link" target="_blank" class="pulse-border block w-full accent-gradient text-white text-center py-4 rounded-2xl font-bold shadow-xl shadow-blue-900/40 transition-all hover:scale-[1.02]">
-            📥 索取《專業用語 vs. 法律紅線對照全指南》
-        </a>
-    </section>
-
-    <!-- 司法準則警示區 (新) -->
-    <section class="px-6 mb-8 max-w-md mx-auto">
-        <div class="bg-red-500/5 border border-red-500/20 p-4 rounded-2xl">
-            <h3 class="text-red-400 text-xs font-bold mb-2 flex items-center">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                司法準則：實質重於形式
-            </h3>
-            <p class="text-slate-400 text-[11px] leading-relaxed">
-                根據 110 醫上訴 945 號判決：即便使用「鬆筋、優化」等去醫療化詞彙，只要行為實質具備治療、矯正意圖，法院仍會認定為**「非法醫療行為」**。包裝話術並非萬能藥。
-            </p>
+    <!-- 核心行動：防禦大禮包 -->
+    <section class="px-6 mb-16 max-w-md mx-auto">
+        <div class="glass-card rounded-[2.5rem] p-8 border border-white/10 shadow-2xl relative overflow-hidden">
+            <h2 class="text-white font-bold text-xl mb-4 text-center">🛡️ 教練風險防禦大禮包</h2>
+            <ul class="text-[11px] text-slate-400 space-y-2 mb-8 list-none px-2">
+                <li class="flex items-center"><svg class="w-3 h-3 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> 5 點避雷檢查表 (PDF)</li>
+                <li class="flex items-center"><svg class="w-3 h-3 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> 法律保命語法指南 (V2.0)</li>
+                <li class="flex items-center"><svg class="w-3 h-3 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> 課後放鬆行政留證 SOP 範本</li>
+            </ul>
+            <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="pulse-border block w-full accent-gradient text-white text-center py-5 rounded-2xl font-bold text-sm shadow-xl shadow-blue-900/40 transition-all hover:scale-[1.02] active:scale-95">
+                點此填表．免費索取大禮包
+            </a>
+            <p class="text-[9px] text-center text-slate-500 mt-4 tracking-tighter uppercase italic">Protect your career before it's too late</p>
         </div>
     </section>
 
-    <!-- 升級版：法律紅線資料庫 -->
-    <section class="px-6 mb-12 max-w-md mx-auto">
-        <div class="flex justify-between items-end mb-4">
+    <!-- 司法預警：紅線資料庫 -->
+    <section class="px-6 mb-16 max-w-md mx-auto">
+        <div class="flex justify-between items-end mb-6 px-2">
             <h2 class="text-xl font-bold flex items-center">
-                <span class="w-1.5 h-6 bg-blue-500 rounded-full mr-3 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></span>
-                防禦語法資料庫 (V3.1)
+                <span class="w-2 h-8 bg-blue-600 rounded-full mr-4 shadow-[0_0_15px_rgba(37,99,235,0.6)]"></span>
+                法律保命語法庫
             </h2>
+            <span class="text-[9px] text-slate-500 pb-1">DATABASE V4.0</span>
         </div>
         
-        <div class="space-y-4">
-            <!-- 類別：動作與處置 -->
-            <div class="glass-card rounded-2xl overflow-hidden border border-white/5">
-                <div class="px-4 py-2 bg-slate-800/50 text-[10px] text-blue-400 font-bold uppercase tracking-wider">維度 A：動作與處置</div>
-                <table class="w-full text-left text-xs">
+        <div class="space-y-6">
+            <!-- 司法警示區 -->
+            <div class="bg-red-500/5 border border-red-500/20 p-5 rounded-3xl">
+                <h3 class="text-red-400 text-[10px] font-bold mb-2 flex items-center uppercase tracking-wider">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    司法準則：實質重於形式
+                </h3>
+                <p class="text-slate-400 text-[10px] leading-relaxed">
+                    根據 **110 醫上訴 945 號** 裁定：即使使用「鬆筋、優化」等去醫療化詞彙，只要行為實質具備治療、矯正意圖，法院仍會認定為**「非法醫療行為」**。包裝話術並非萬能藥。
+                </p>
+            </div>
+
+            <!-- 維度 A -->
+            <div class="glass-card rounded-3xl overflow-hidden border border-white/5">
+                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold text-[10px] uppercase tracking-widest">
+                    維度 A：動作與處置
+                </div>
+                <table class="w-full text-left text-[11px]">
                     <tbody class="divide-y divide-white/5">
                         <tr>
-                            <td class="px-4 py-3 fatal-text w-1/2">喬 / 復位 / 治癒 / 鬆筋</td>
-                            <td class="px-4 py-3 safe-text w-1/2">排列調整 / 優化流暢度</td>
+                            <td class="px-5 py-4 fatal-text">喬、復位、治癒、矯正</td>
+                            <td class="px-5 py-4 safe-text text-right">排列調整、優化流暢度</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- 類別：稱謂與場域 -->
-            <div class="glass-card rounded-2xl overflow-hidden border border-white/5">
-                <div class="px-4 py-2 bg-slate-800/50 text-[10px] text-blue-400 font-bold uppercase tracking-wider">維度 B：稱謂與場域</div>
-                <table class="w-full text-left text-xs">
+            <!-- 維度 B -->
+            <div class="glass-card rounded-3xl overflow-hidden border border-white/5">
+                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold text-[10px] uppercase tracking-widest">
+                    維度 B：稱謂與場域
+                </div>
+                <table class="w-full text-left text-[11px]">
                     <tbody class="divide-y divide-white/5">
                         <tr>
-                            <td class="px-4 py-3 fatal-text w-1/2">院長 / 診療費 / 病歷表</td>
-                            <td class="px-4 py-3 safe-text w-1/2">負責人 / 服務費 / 評估表</td>
+                            <td class="px-5 py-4 fatal-text">院長、處方、病歷表</td>
+                            <td class="px-5 py-4 safe-text text-right">負責人、計畫、評估紀錄</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- 類別：器材與建議 -->
-            <div class="glass-card rounded-2xl overflow-hidden border border-white/5">
-                <div class="px-4 py-2 bg-slate-800/50 text-[10px] text-blue-400 font-bold uppercase tracking-wider">維度 C：器材與建議</div>
-                <table class="w-full text-left text-xs">
+            <!-- 維度 C -->
+            <div class="glass-card rounded-3xl overflow-hidden border border-white/5">
+                <div class="px-5 py-3 bg-slate-900/50 flex justify-between items-center text-blue-400 font-bold text-[10px] uppercase tracking-widest">
+                    維度 C：器材與輔具
+                </div>
+                <table class="w-full text-left text-[11px]">
                     <tbody class="divide-y divide-white/5">
                         <tr>
-                            <td class="px-4 py-3 fatal-text w-1/2">矯正鞋墊 / 止痛藥建議</td>
-                            <td class="px-4 py-3 safe-text w-1/2">轉介醫事人員評估</td>
+                            <td class="px-5 py-4 fatal-text">矯正鞋墊、藥物建議</td>
+                            <td class="px-5 py-4 safe-text text-right">轉介醫事人員評估</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="p-4 bg-blue-500/5 rounded-2xl border border-blue-500/10">
-                <p class="text-[10px] text-blue-300 leading-relaxed italic">
-                    💡 專家警告：場域佈置（如擺放診視床、穿著白色醫袍）會被法院視為「營造醫療權威感」之積極證據，顯著加重法律責任。
+                <p class="text-[10px] text-blue-300 leading-relaxed italic text-center">
+                    💡 專家警告：場域內擺放「診視床」或「穿著白袍」會被視為加重定罪之積極證據。
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- 關鍵案例深度解析 -->
-    <section class="px-6 mb-12 max-w-md mx-auto text-sm">
-        <h2 class="text-xl font-bold mb-6 flex items-center">
-            <span class="w-1.5 h-6 bg-blue-500 rounded-full mr-3"></span>
+    <!-- 深度解析模組 -->
+    <section class="px-6 mb-20 max-w-md mx-auto">
+        <h2 class="text-xl font-bold mb-8 flex items-center px-2">
+            <span class="w-2 h-8 bg-blue-600 rounded-full mr-4 shadow-[0_0_15px_rgba(37,99,235,0.6)]"></span>
             關鍵案例深度解析
         </h2>
         
         <div class="space-y-4">
-            <details class="glass-card rounded-3xl border border-white/5 overflow-hidden group">
-                <summary class="p-6 cursor-pointer">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[10px] bg-red-500/10 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-widest">Case 113-訴-1196</span>
-                        <svg class="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <details class="glass-card rounded-[2rem] border border-white/5 overflow-hidden group">
+                <summary class="p-8 cursor-pointer">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[9px] bg-red-600 text-white px-2 py-0.5 rounded font-bold tracking-widest uppercase">Case 113-訴-1196</span>
+                        <svg class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">「開胸椎」案的法律定罪邏輯</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">解析法官眼中的「主觀犯意」與「客觀宣稱」。即便無侵入性動作，亦可能觸法。</p>
+                    <h3 class="text-lg font-bold mb-3 leading-tight text-white">「開胸椎」案的法律定罪邏輯</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">為何懂解剖不等於有執法權？解析法官眼中的「主觀犯意」與「客觀宣稱」。</p>
                 </summary>
                 
-                <div class="px-6 pb-6 space-y-4 border-t border-white/5 pt-4">
-                    <div class="space-y-2">
-                        <h4 class="font-bold text-blue-400 text-xs">⚖️ 定罪關鍵：行為實質</h4>
-                        <p class="text-slate-300 text-[11px] leading-relaxed bg-slate-900/30 p-3 rounded-lg">
-                            法官認定：被告行為具備「預防傷害、治療疾病」之目的，且客觀上讓學員產生醫療期待。教練應回歸「功能性評估」，徹底去醫療化。
+                <div class="px-8 pb-8 space-y-6 border-t border-white/5 pt-6 text-[11px]">
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-blue-400 uppercase tracking-widest">⚖️ 定罪關鍵 1：主觀犯意</h4>
+                        <p class="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-2xl border border-white/5">
+                            行為是否具備「治療、矯正或預防疾病、傷害」之目的？即便教練自認在教學，只要目的是處理學員傷病，即具備醫療意圖。
                         </p>
                     </div>
 
-                    <div class="bg-green-500/10 border border-green-500/20 p-4 rounded-2xl">
-                        <h4 class="font-bold text-green-400 text-xs mb-2">🛡️ 法律避風港</h4>
-                        <p class="text-[11px] text-slate-300">
-                            判例指出：若目的僅為 **「紓解筋骨、恢復疲勞、動作評估」**，且未宣稱醫療效果，則不構成違法醫療行為。
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-blue-400 uppercase tracking-widest">⚖️ 定罪關鍵 2：客觀宣稱</h4>
+                        <p class="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-2xl border border-white/5">
+                            客觀上是否有明確「宣稱療效」？只要言詞暗示能解決生理問題（如：醫治背痛），即便未開藥，亦屬非法醫療行為。
                         </p>
                     </div>
 
-                    <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="block w-full text-center py-3 bg-blue-600/20 text-blue-400 rounded-xl font-bold text-xs mt-4">
+                    <div class="bg-green-500/5 border border-green-500/20 p-5 rounded-3xl">
+                        <h4 class="font-bold text-green-400 mb-2 uppercase tracking-widest">🛡️ 法律避風港</h4>
+                        <p class="text-slate-300 leading-relaxed italic">
+                            判例指出：若目的僅為「紓解筋骨、恢復疲勞、動作評估」，且未宣稱醫療效果，則不構成違法。這是教練的唯一安全活動區。
+                        </p>
+                    </div>
+
+                    <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="block w-full text-center py-4 bg-blue-600/10 text-blue-400 rounded-2xl font-bold text-[10px] mt-6 border border-blue-600/20 uppercase tracking-widest hover:bg-blue-600/20 transition-all">
                         獲取此案完整行政留證 SOP ➔
                     </a>
                 </div>
@@ -166,14 +195,10 @@
         </div>
     </section>
 
-    <!-- 底部導航 -->
-    <footer class="fixed bottom-0 left-0 w-full p-5 glass-card border-t border-white/10 flex space-x-4 z-50">
-        <a href="https://threads.net/@ping_risk_strategist" target="_blank" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-center py-4 rounded-2xl font-bold text-xs transition-colors">
-            Threads 追蹤
-        </a>
-        <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="flex-1 accent-gradient text-white text-center py-4 rounded-2xl font-bold text-xs shadow-lg transition-transform active:scale-95">
-            索取完整 PDF
-        </a>
+    <!-- 底部導覽 -->
+    <footer class="fixed bottom-0 left-0 w-full p-6 glass-card border-t border-white/10 flex space-x-4 z-50">
+        <a href="https://threads.net/@ping_risk_strategist" target="_blank" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-center py-4 rounded-2xl font-bold text-[10px] transition-all uppercase tracking-widest">Threads</a>
+        <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="flex-1 accent-gradient text-white text-center py-4 rounded-2xl font-bold text-[10px] shadow-lg transition-transform active:scale-95 uppercase tracking-widest">Get Bundle</a>
     </footer>
 
 </body>
