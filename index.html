@@ -13,8 +13,10 @@
         .hero-pattern { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 20px 20px; }
         .score-circle { transition: stroke-dashoffset 1s ease-out; stroke-dasharray: 314.15; }
         .progress-bar { transition: width 0.3s ease; }
-        .btn-option { transition: all 0.2s ease; }
-        .btn-option:active { transform: scale(0.98); }
+        .btn-option { transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.05); }
+        .btn-option:hover { border-color: rgba(59, 130, 246, 0.5); background: rgba(30, 41, 59, 0.8); }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="selection:bg-blue-500/30">
@@ -25,7 +27,7 @@
             <div class="text-xl font-bold tracking-tighter flex items-center">
                 <span class="text-blue-500 mr-2">Risk</span>Strategist
             </div>
-            <a href="#quiz" class="text-xs bg-blue-600 px-4 py-2 rounded-full font-bold hover:bg-blue-500 transition-all">立即檢測風險</a>
+            <a href="#quiz" class="text-xs bg-blue-600 px-4 py-2 rounded-full font-bold hover:bg-blue-500 transition-all">立即風險檢測</a>
         </div>
     </nav>
 
@@ -33,45 +35,41 @@
     <section class="relative pt-32 pb-16 px-6 hero-pattern">
         <div class="max-w-4xl mx-auto text-center">
             <div class="inline-block px-3 py-1 mb-6 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-bold tracking-widest uppercase border border-blue-500/20">
-                Data-Driven Legal Defense
+                Evidence-Based Legal Defense
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tighter leading-tight">
                 你的專業，不該在<br>
-                <span class="text-blue-500">法律紅線前裸奔</span>
+                <span class="text-blue-500 font-extrabold tracking-normal">法律紅線前裸奔</span>
             </h1>
             <p class="text-slate-400 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed">
-                分析 100+ 份運動判決書，將冷冰冰的法條轉化為「保命工具」。<br>
-                幫助教練建立可被證明的專業防線。
+                分析 100+ 份判決，將法條轉化為「保命工具」。<br>
+                幫助教練、長照與 NGO 建立可被證明的專業防線。
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#quiz" class="accent-gradient px-8 py-4 rounded-2xl font-bold text-base shadow-lg shadow-blue-900/20 hover:scale-105 transition-transform">
+            <div class="flex justify-center">
+                <a href="#quiz" class="accent-gradient px-10 py-5 rounded-2xl font-bold text-lg shadow-xl shadow-blue-900/30 hover:scale-105 transition-transform">
                     10秒測出你的執業風險評等
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 核心互動：10秒風險檢測器 -->
+    <!-- 核心互動：10秒風險檢測器 (V6.3 邏輯優化) -->
     <section id="quiz" class="py-12 px-6">
-        <div class="max-w-xl mx-auto glass-card rounded-[2.5rem] p-8 border border-blue-500/30 shadow-2xl shadow-blue-900/40 relative overflow-hidden">
-            <!-- 進度條 -->
+        <div class="max-w-xl mx-auto glass-card rounded-[2.5rem] p-8 border border-blue-500/30 shadow-2xl relative overflow-hidden">
             <div class="absolute top-0 left-0 h-1 bg-slate-800 w-full">
                 <div id="progress" class="h-full bg-blue-500 progress-bar" style="width: 0%"></div>
             </div>
 
             <div id="quiz-container">
                 <div class="flex justify-between items-center mb-8">
-                    <h2 class="text-lg font-bold flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="2"/></svg>
-                        執業風險快速篩查
-                    </h2>
-                    <span id="q-count" class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Question 1 / 3</span>
+                    <h2 class="text-lg font-bold flex items-center">🛡️ 執業風險快速篩查</h2>
+                    <span id="q-count" class="text-[10px] text-slate-500 font-bold uppercase">Question 1 / 3</span>
                 </div>
                 
                 <div id="q-content">
                     <p id="question" class="text-lg mb-10 font-medium leading-relaxed">1. 你是否在課程或文案中使用「喬、復位、矯正、治療」等詞彙？</p>
                     <div class="grid grid-cols-1 gap-4" id="options-grid">
-                        <!-- 選項由 JS 動態生成 -->
+                        <!-- JS 動態生成 -->
                     </div>
                 </div>
             </div>
@@ -83,66 +81,81 @@
                         <circle class="text-slate-800" stroke-width="10" stroke="currentColor" fill="transparent" r="60" cx="80" cy="80"/>
                         <circle id="score-circle" class="text-red-500 score-circle" stroke-width="10" stroke-dashoffset="377" stroke-linecap="round" stroke="currentColor" fill="transparent" r="60" cx="80" cy="80"/>
                     </svg>
-                    <div class="absolute flex flex-col">
+                    <div class="absolute">
                         <span id="score-text" class="text-2xl font-bold">檢測中</span>
                     </div>
                 </div>
                 <h3 class="text-2xl font-bold mb-4">防禦評級：<span id="rating" class="text-red-400">計算中</span></h3>
-                <p id="risk-desc" class="text-sm text-slate-400 mb-10 leading-relaxed px-4">
-                    正在分析您的法律防禦能力...
-                </p>
-                <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="accent-gradient block w-full py-5 rounded-2xl font-bold text-base shadow-xl shadow-blue-900/40 hover:scale-[1.02] transition-transform">
-                    📥 獲取「無罪解套」防禦大禮包
-                </a>
-                <p class="text-[10px] text-slate-500 mt-4 italic">※ 內含法官認可之課前評估表範本與保命語法指南</p>
+                <p id="risk-desc" class="text-sm text-slate-400 mb-10 leading-relaxed px-4">分析中...</p>
+                
+                <!-- 即時回饋區：精簡版圖卡下載 -->
+                <div class="bg-blue-500/5 rounded-2xl p-6 mb-8 border border-blue-500/10">
+                    <h4 class="text-blue-400 text-xs font-bold mb-3 uppercase tracking-widest">即時獲取：首波防禦指南</h4>
+                    <p class="text-[11px] text-slate-500 mb-4 italic">「根據您目前的評級，我們建議您先修正以下語法：」</p>
+                    <div class="flex justify-center space-x-2 mb-4">
+                        <span class="text-[9px] bg-red-500/10 text-red-400 px-2 py-1 rounded">禁「治療」</span>
+                        <span class="text-[9px] bg-red-500/10 text-red-400 px-2 py-1 rounded">禁「復位」</span>
+                        <span class="text-[9px] bg-green-500/10 text-green-400 px-2 py-1 rounded">改用「優化」</span>
+                    </div>
+                    <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="accent-gradient block w-full py-4 rounded-xl font-bold text-sm shadow-xl transition-all hover:scale-[1.02]">
+                        📥 下載「無罪解套」完整大禮包
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 成功案例與證據區 -->
+    <!-- 判決深度解析區 (素材庫擴充) -->
     <section class="py-24 px-6 bg-slate-900/20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 tracking-tighter text-white">為什麼教練需要「專業防線」？</h2>
-                <p class="text-slate-400 text-sm italic">來自台灣真實判決書的教訓與啟示</p>
+            <div class="text-center mb-16 px-4">
+                <h2 class="text-3xl font-bold mb-4 tracking-tighter">專業人士的「司法防禦」實錄</h2>
+                <p class="text-slate-400 text-sm">數據來源：台灣地方法院、高等法院真實判決分析</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass-card p-8 rounded-[2rem] border border-green-500/10 hover:border-green-500/30 transition-all">
-                    <span class="text-[10px] bg-green-500/10 text-green-400 px-3 py-1 rounded-full font-bold mb-4 inline-block tracking-widest uppercase">無罪標竿</span>
-                    <h3 class="text-xl font-bold mb-4 text-white">滾筒案：救命的 20 分鐘</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        教練指導使用筋膜滾筒導致學員肋骨骨裂。獲判無罪的關鍵：<span class="text-green-400">教練落實了 20 分鐘的課前評估並留下記錄</span>，證明已盡專業注意義務 (113 易 1416)。
-                    </p>
-                    <a href="#quiz" class="text-blue-400 text-xs font-bold hover:underline">我也要領取評估表範本 ➔</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Case 1: 114 聲自 72 (新) -->
+                <div class="glass-card p-6 rounded-3xl border border-white/5 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-purple-500/20 text-purple-400 text-[8px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-tighter">Case 114-聲自-72</div>
+                    <h3 class="text-base font-bold mb-3 mt-4 text-white">InBody 不是診斷證明</h3>
+                    <p class="text-[11px] text-slate-400 leading-relaxed mb-4">學員嫌重受傷告教練。法院認定：InBody 數據是用來規劃菜單而非醫療診斷，駁回起訴。</p>
+                    <div class="text-[9px] text-purple-400 font-bold">防禦重點：守住數據界線</div>
                 </div>
 
-                <div class="glass-card p-8 rounded-[2rem] border border-red-500/10 hover:border-red-500/30 transition-all">
-                    <span class="text-[10px] bg-red-500/10 text-red-400 px-3 py-1 rounded-full font-bold mb-4 inline-block tracking-widest uppercase">有罪警示</span>
-                    <h3 class="text-xl font-bold mb-4 text-white">術語包裝無效化</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        以為將名稱改為「鬆筋、調理」就能避開醫師法？法院判定：<span class="text-red-400">「行為實質重於名稱」</span>。若具備醫療治療特徵，改名依然觸法 (110 醫上訴 945)。
-                    </p>
-                    <a href="#quiz" class="text-blue-400 text-xs font-bold hover:underline">查看保命用語對照表 ➔</a>
+                <!-- Case 2: 113 易 1416 -->
+                <div class="glass-card p-6 rounded-3xl border border-white/5 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-green-500/20 text-green-400 text-[8px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-tighter">Case 113-易-1416</div>
+                    <h3 class="text-base font-bold mb-3 mt-4 text-white">課前評估的救贖</h3>
+                    <p class="text-[11px] text-slate-400 leading-relaxed mb-4">滾筒導致骨裂，教練獲判無罪。關鍵在於落實了 **20 分鐘的評估紀錄**，證明已盡專業義務。</p>
+                    <div class="text-[9px] text-green-400 font-bold">防禦重點：紀錄勝過口頭</div>
+                </div>
+
+                <!-- Case 3: 112 醫上訴 5 -->
+                <div class="glass-card p-6 rounded-3xl border border-white/5 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-red-500/20 text-red-400 text-[8px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-tighter">Case 112-醫上訴-5</div>
+                    <h3 class="text-base font-bold mb-3 mt-4 text-white">術語包裝無效化</h3>
+                    <p class="text-[11px] text-slate-400 leading-relaxed mb-4">改名「骨骼調理」執行整脊。法院判定：行為實質重於名稱，具備治療特徵即構成非法醫療。</p>
+                    <div class="text-[9px] text-red-400 font-bold">防禦重點：穿透式司法觀察</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 關於創辦人 -->
-    <section class="py-24 px-6 max-w-4xl mx-auto text-center">
-        <div class="w-24 h-24 mx-auto rounded-full bg-slate-800 flex items-center justify-center mb-8 border-2 border-blue-500/20">
-            <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="1.2"/></svg>
+    <!-- 創辦人區 (權威加強) -->
+    <section class="py-24 px-6 max-w-4xl mx-auto flex flex-col items-center text-center">
+        <div class="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-8 border-2 border-blue-500/30">
+            <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="1.5"/></svg>
         </div>
         <h2 class="text-3xl font-bold mb-6 tracking-tighter">我是 Ping | 你的風險軍師</h2>
-        <p class="text-slate-400 text-base leading-relaxed max-w-2xl mx-auto">
-            中國醫運醫系畢業，橫跨人事行政與醫療體系。我從數百份判決中提煉出教練最需要的「武裝工具」。讓你的專業不再裸奔。
+        <p class="text-slate-400 text-base leading-relaxed max-w-2xl">
+            中國醫運醫系畢業，橫跨行政法務與醫療。我從數百份判決中提煉出教練、NGO 與長照專業者最需要的「保命工具」。<br>
+            <span class="text-blue-400 font-bold">讓你的專業，不再成為被告的理由。</span>
         </p>
     </section>
 
     <!-- Footer -->
     <footer class="py-16 px-6 border-t border-white/5 text-center">
-        <p class="text-xs text-slate-500 uppercase tracking-[0.3em] mb-4 font-bold">Risk Strategist</p>
+        <p class="text-xs text-slate-500 uppercase tracking-[0.4em] mb-4 font-bold">Risk Strategist</p>
         <p class="text-[10px] text-slate-600 tracking-tighter">&copy; 2026 Risk Strategist. All rights reserved. Powered by Ping Lab.</p>
     </footer>
 
@@ -152,24 +165,24 @@
         
         const quizData = [
             {
-                question: "1. 你是否在課程或對外文案中使用過「喬、復位、矯正、治療」等詞彙？",
+                question: "1. 你是否在課程、網站或對外文案中使用過「喬、復位、矯正、治療」等詞彙？",
                 options: [
-                    { text: "是的，有時會用到", score: 40 },
-                    { text: "從不使用，我都用動作教育/優化", score: 0 }
+                    { text: "是的，有時為了讓學員聽懂會用到", score: 40 },
+                    { text: "從不使用，我都講「動作教育」或「優化」", score: 0 }
                 ]
             },
             {
-                question: "2. 你的工作室是否擺放「診視床」或工作時穿著「白色醫袍」？",
+                question: "2. 你的工作室是否有擺放「診視床」或工作時穿著「白色醫袍 / 白袍」？",
                 options: [
-                    { text: "是的，有擺放或穿著", score: 40 },
-                    { text: "沒有，維持運動訓練空間風格", score: 0 }
+                    { text: "有，擺放這些是為了展現專業權威感", score: 40 },
+                    { text: "沒有，維持運動訓練空間風格與運動服", score: 0 }
                 ]
             },
             {
-                question: "3. 你是否有針對每一位學員落實「課前評估紀錄 (Paperwork)」？",
+                question: "3. 你是否有針對每一位學員落實「課前評估紀錄 (Paperwork)」而非口頭詢問？",
                 options: [
-                    { text: "有，每位學員都有完整書面評估紀錄", score: 0 },
-                    { text: "沒有，通常只有口頭詢問有無受傷", score: 40 }
+                    { text: "有，每位都有完整書面或數位評估紀錄", score: 0 },
+                    { text: "沒有，通常只有口頭詢問有無受傷史", score: 40 }
                 ]
             }
         ];
@@ -178,14 +191,14 @@
             const data = quizData[currentQ];
             document.getElementById('question').innerText = data.question;
             document.getElementById('q-count').innerText = `Question ${currentQ + 1} / ${quizData.length}`;
-            document.getElementById('progress').style.width = `${((currentQ) / quizData.length) * 100}%`;
+            document.getElementById('progress').style.width = `${(currentQ / quizData.length) * 100}%`;
 
             const grid = document.getElementById('options-grid');
             grid.innerHTML = '';
             
             data.options.forEach(opt => {
                 const btn = document.createElement('button');
-                btn.className = "btn-option group w-full text-left p-5 rounded-2xl bg-slate-800/40 border border-white/5 hover:border-blue-500/50 hover:bg-slate-800 transition-all";
+                btn.className = "btn-option group w-full text-left p-5 rounded-2xl bg-slate-800/40 hover:bg-slate-800 transition-all shadow-inner";
                 btn.innerHTML = `<span class="text-sm block text-slate-200 group-hover:text-white">${opt.text}</span>`;
                 btn.onclick = () => handleAnswer(opt.score);
                 grid.appendChild(btn);
@@ -213,36 +226,32 @@
             const scoreLabel = document.getElementById('score-text');
             const desc = document.getElementById('risk-desc');
 
-            // 計算圓環 offset (總長約 377)
             const offset = 377 - (Math.min(riskScore, 120) / 120) * 377;
             circle.style.strokeDashoffset = offset;
 
             if(riskScore >= 80) {
                 rating.innerText = "高危紅色警戒";
-                rating.className = "text-red-500 font-bold";
+                rating.className = "text-red-500 font-extrabold";
                 scoreLabel.innerText = "🚨 危險";
-                scoreLabel.className = "absolute text-2xl font-bold text-red-500";
-                desc.innerText = "警告：你的執業習慣已嚴重觸及刑事紅線。法官極可能認定你具備「醫療主觀犯意」。建議立即停止高風險用語，並下載防禦包進行行政留證補強。";
+                scoreLabel.className = "text-xl font-bold text-red-500";
+                desc.innerText = "警告：你的執業習慣已嚴重觸及刑事紅線。法院極可能認定你具備「醫療主觀犯意」。建議立即停止高風險用語，並下載防禦包進行行政留證補強。";
             } else if(riskScore >= 40) {
                 rating.innerText = "中度風險預警";
-                rating.className = "text-yellow-400 font-bold";
+                rating.className = "text-yellow-400 font-extrabold";
                 scoreLabel.innerText = "⚠️ 注意";
-                scoreLabel.className = "absolute text-2xl font-bold text-yellow-400";
-                circle.classList.remove('text-red-500');
-                circle.classList.add('text-yellow-400');
-                desc.innerText = "提示：你雖有一定防範意識，但在特定場景（如行政留證或場域布置）仍存有漏洞。這往往是職業奧客發起訴訟的破口。";
+                scoreLabel.className = "text-xl font-bold text-yellow-400";
+                circle.classList.replace('text-red-500', 'text-yellow-400');
+                desc.innerText = "提示：你雖有一定防範意識，但在行政留證或場域布置上仍有漏洞。這往往是職業奧客發起訴訟的破口。建議參考無罪案例的防禦模組。";
             } else {
                 rating.innerText = "低風險安全";
-                rating.className = "text-green-400 font-bold";
+                rating.className = "text-green-400 font-extrabold";
                 scoreLabel.innerText = "✅ 安全";
-                scoreLabel.className = "absolute text-2xl font-bold text-green-400";
-                circle.classList.remove('text-red-500');
-                circle.classList.add('text-green-400');
-                desc.innerText = "恭喜：你的執業流程具備專業法律防禦思維。持續維持規範化的課前評估，是保護你職涯的最佳盾牌。";
+                scoreLabel.className = "text-xl font-bold text-green-400";
+                circle.classList.replace('text-red-500', 'text-green-400');
+                desc.innerText = "恭喜：你的執業流程具備專業法律防禦思維。持續維持規範化的課前評估紀錄，是保護你職涯的最佳盾牌。";
             }
         }
 
-        // 初始化第一題
         renderQuestion();
     </script>
 
