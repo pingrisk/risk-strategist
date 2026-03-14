@@ -13,6 +13,8 @@
         .hero-pattern { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 20px 20px; }
         .score-circle { transition: stroke-dashoffset 1s ease-out; stroke-dasharray: 314.15; }
         .progress-bar { transition: width 0.3s ease; }
+        .btn-option { transition: all 0.2s ease; }
+        .btn-option:active { transform: scale(0.98); }
     </style>
 </head>
 <body class="selection:bg-blue-500/30">
@@ -35,11 +37,11 @@
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tighter leading-tight">
                 你的專業，不該在<br>
-                <span class="text-blue-500 text-gradient">法律紅線前裸奔</span>
+                <span class="text-blue-500">法律紅線前裸奔</span>
             </h1>
             <p class="text-slate-400 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed">
                 分析 100+ 份運動判決書，將冷冰冰的法條轉化為「保命工具」。<br>
-                幫助教練與專業工作者，建立可被證明的專業防線。
+                幫助教練建立可被證明的專業防線。
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#quiz" class="accent-gradient px-8 py-4 rounded-2xl font-bold text-base shadow-lg shadow-blue-900/20 hover:scale-105 transition-transform">
@@ -68,13 +70,8 @@
                 
                 <div id="q-content">
                     <p id="question" class="text-lg mb-10 font-medium leading-relaxed">1. 你是否在課程或文案中使用「喬、復位、矯正、治療」等詞彙？</p>
-                    <div class="grid grid-cols-1 gap-4">
-                        <button onclick="nextQ(true)" class="group w-full text-left p-5 rounded-2xl bg-slate-800/40 border border-white/5 hover:border-blue-500/50 hover:bg-slate-800 transition-all">
-                            <span class="text-sm block text-slate-200 group-hover:text-white">是的，有時會用到</span>
-                        </button>
-                        <button onclick="nextQ(false)" class="group w-full text-left p-5 rounded-2xl bg-slate-800/40 border border-white/5 hover:border-blue-500/50 hover:bg-slate-800 transition-all">
-                            <span class="text-sm block text-slate-200 group-hover:text-white">從不使用，我都說動作優化或教育</span>
-                        </button>
+                    <div class="grid grid-cols-1 gap-4" id="options-grid">
+                        <!-- 選項由 JS 動態生成 -->
                     </div>
                 </div>
             </div>
@@ -87,12 +84,12 @@
                         <circle id="score-circle" class="text-red-500 score-circle" stroke-width="10" stroke-dashoffset="377" stroke-linecap="round" stroke="currentColor" fill="transparent" r="60" cx="80" cy="80"/>
                     </svg>
                     <div class="absolute flex flex-col">
-                        <span id="score-text" class="text-3xl font-bold">高風險</span>
+                        <span id="score-text" class="text-2xl font-bold">檢測中</span>
                     </div>
                 </div>
-                <h3 class="text-2xl font-bold mb-4">防禦評級：<span id="rating" class="text-red-400">危險等級</span></h3>
+                <h3 class="text-2xl font-bold mb-4">防禦評級：<span id="rating" class="text-red-400">計算中</span></h3>
                 <p id="risk-desc" class="text-sm text-slate-400 mb-10 leading-relaxed px-4">
-                    你的行為模式極易觸發《醫師法》第 28 條非法行醫罪。根據 113-訴-1196 判決，司法判定採「穿透式觀察」，你的話術包裝可能在法庭上完全無效。
+                    正在分析您的法律防禦能力...
                 </p>
                 <a href="https://forms.gle/FJSJLPLJTUn8PVxc6" target="_blank" class="accent-gradient block w-full py-5 rounded-2xl font-bold text-base shadow-xl shadow-blue-900/40 hover:scale-[1.02] transition-transform">
                     📥 獲取「無罪解套」防禦大禮包
@@ -111,22 +108,20 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Case 1: 113-易-1416 -->
                 <div class="glass-card p-8 rounded-[2rem] border border-green-500/10 hover:border-green-500/30 transition-all">
-                    <span class="text-[10px] bg-green-500/10 text-green-400 px-3 py-1 rounded-full font-bold mb-4 inline-block">無罪案例解析</span>
+                    <span class="text-[10px] bg-green-500/10 text-green-400 px-3 py-1 rounded-full font-bold mb-4 inline-block tracking-widest uppercase">無罪標竿</span>
                     <h3 class="text-xl font-bold mb-4 text-white">滾筒案：救命的 20 分鐘</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        教練指導使用筋膜滾筒導致學員肋骨骨裂。獲判無罪的關鍵：<span class="text-green-400">教練落實了 20 分鐘的課前評估並留下記錄</span>，法官認定已盡專業注意義務。
+                        教練指導使用筋膜滾筒導致學員肋骨骨裂。獲判無罪的關鍵：<span class="text-green-400">教練落實了 20 分鐘的課前評估並留下記錄</span>，證明已盡專業注意義務 (113 易 1416)。
                     </p>
                     <a href="#quiz" class="text-blue-400 text-xs font-bold hover:underline">我也要領取評估表範本 ➔</a>
                 </div>
 
-                <!-- Case 2: 110-醫上訴-945 -->
                 <div class="glass-card p-8 rounded-[2rem] border border-red-500/10 hover:border-red-500/30 transition-all">
-                    <span class="text-[10px] bg-red-500/10 text-red-400 px-3 py-1 rounded-full font-bold mb-4 inline-block">有罪案例警示</span>
-                    <h3 class="text-xl font-bold mb-4 text-white">話術包裝無效化</h3>
+                    <span class="text-[10px] bg-red-500/10 text-red-400 px-3 py-1 rounded-full font-bold mb-4 inline-block tracking-widest uppercase">有罪警示</span>
+                    <h3 class="text-xl font-bold mb-4 text-white">術語包裝無效化</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        以為將名稱改為「鬆筋、調理」就能避開醫師法？法院判定：<span class="text-red-400">「行為實質重於名稱」</span>。若具備治療意圖，改名依然觸法。
+                        以為將名稱改為「鬆筋、調理」就能避開醫師法？法院判定：<span class="text-red-400">「行為實質重於名稱」</span>。若具備醫療治療特徵，改名依然觸法 (110 醫上訴 945)。
                     </p>
                     <a href="#quiz" class="text-blue-400 text-xs font-bold hover:underline">查看保命用語對照表 ➔</a>
                 </div>
@@ -141,42 +136,70 @@
         </div>
         <h2 class="text-3xl font-bold mb-6 tracking-tighter">我是 Ping | 你的風險軍師</h2>
         <p class="text-slate-400 text-base leading-relaxed max-w-2xl mx-auto">
-            中國醫運醫系畢業，橫跨行政法務與醫療體系。我從數百份判決中提煉出教練最需要的「武裝工具」。我的目標很簡單：讓你的專業與熱心，不再成為斷送職涯的理由。
+            中國醫運醫系畢業，橫跨人事行政與醫療體系。我從數百份判決中提煉出教練最需要的「武裝工具」。讓你的專業不再裸奔。
         </p>
     </section>
 
     <!-- Footer -->
     <footer class="py-16 px-6 border-t border-white/5 text-center">
-        <p class="text-xs text-slate-500 uppercase tracking-[0.3em] mb-4">Risk Strategist</p>
+        <p class="text-xs text-slate-500 uppercase tracking-[0.3em] mb-4 font-bold">Risk Strategist</p>
         <p class="text-[10px] text-slate-600 tracking-tighter">&copy; 2026 Risk Strategist. All rights reserved. Powered by Ping Lab.</p>
     </footer>
 
     <script>
         let currentQ = 0;
         let riskScore = 0;
-        const totalQs = 3;
         
-        const questions = [
-            "1. 你是否在課程或對外文案中使用過「喬、復位、矯正、治療」等詞彙？",
-            "2. 你的工作室是否擺放「診視床」或工作時穿著「白色醫袍」？",
-            "3. 你是否有針對每一位學員落實「課前評估紀錄 (Paperwork)」？"
+        const quizData = [
+            {
+                question: "1. 你是否在課程或對外文案中使用過「喬、復位、矯正、治療」等詞彙？",
+                options: [
+                    { text: "是的，有時會用到", score: 40 },
+                    { text: "從不使用，我都用動作教育/優化", score: 0 }
+                ]
+            },
+            {
+                question: "2. 你的工作室是否擺放「診視床」或工作時穿著「白色醫袍」？",
+                options: [
+                    { text: "是的，有擺放或穿著", score: 40 },
+                    { text: "沒有，維持運動訓練空間風格", score: 0 }
+                ]
+            },
+            {
+                question: "3. 你是否有針對每一位學員落實「課前評估紀錄 (Paperwork)」？",
+                options: [
+                    { text: "有，每位學員都有完整書面評估紀錄", score: 0 },
+                    { text: "沒有，通常只有口頭詢問有無受傷", score: 40 }
+                ]
+            }
         ];
 
-        function nextQ(isYes) {
-            // 邏輯判斷：第一題 Yes 是風險，第二題 Yes 是風險，第三題 No 是風險
-            if(currentQ === 0 && isYes) riskScore += 40;
-            if(currentQ === 1 && isYes) riskScore += 40;
-            if(currentQ === 2 && !isYes) riskScore += 40;
+        function renderQuestion() {
+            const data = quizData[currentQ];
+            document.getElementById('question').innerText = data.question;
+            document.getElementById('q-count').innerText = `Question ${currentQ + 1} / ${quizData.length}`;
+            document.getElementById('progress').style.width = `${((currentQ) / quizData.length) * 100}%`;
 
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
+            
+            data.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "btn-option group w-full text-left p-5 rounded-2xl bg-slate-800/40 border border-white/5 hover:border-blue-500/50 hover:bg-slate-800 transition-all";
+                btn.innerHTML = `<span class="text-sm block text-slate-200 group-hover:text-white">${opt.text}</span>`;
+                btn.onclick = () => handleAnswer(opt.score);
+                grid.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(score) {
+            riskScore += score;
             currentQ++;
             
-            // 更新進度條
-            document.getElementById('progress').style.width = ((currentQ / totalQs) * 100) + "%";
-
-            if(currentQ < totalQs) {
-                document.getElementById('question').innerText = questions[currentQ];
-                document.getElementById('q-count').innerText = "Question " + (currentQ + 1) + " / " + totalQs;
+            if(currentQ < quizData.length) {
+                renderQuestion();
             } else {
+                document.getElementById('progress').style.width = "100%";
                 showResult();
             }
         }
@@ -187,36 +210,40 @@
             
             const circle = document.getElementById('score-circle');
             const rating = document.getElementById('rating');
-            const scoreText = document.getElementById('score-text');
+            const scoreLabel = document.getElementById('score-text');
             const desc = document.getElementById('risk-desc');
 
             // 計算圓環 offset (總長約 377)
-            // riskScore 滿分 120 (全部踩雷)
-            const offset = 377 - (riskScore / 120) * 377;
+            const offset = 377 - (Math.min(riskScore, 120) / 120) * 377;
             circle.style.strokeDashoffset = offset;
 
             if(riskScore >= 80) {
                 rating.innerText = "高危紅色警戒";
                 rating.className = "text-red-500 font-bold";
-                scoreText.innerText = "🚨 危險";
-                scoreText.className = "text-red-500 font-bold text-center w-full block left-0";
+                scoreLabel.innerText = "🚨 危險";
+                scoreLabel.className = "absolute text-2xl font-bold text-red-500";
                 desc.innerText = "警告：你的執業習慣已嚴重觸及刑事紅線。法官極可能認定你具備「醫療主觀犯意」。建議立即停止高風險用語，並下載防禦包進行行政留證補強。";
             } else if(riskScore >= 40) {
                 rating.innerText = "中度風險預警";
                 rating.className = "text-yellow-400 font-bold";
-                scoreText.innerText = "⚠️ 注意";
+                scoreLabel.innerText = "⚠️ 注意";
+                scoreLabel.className = "absolute text-2xl font-bold text-yellow-400";
                 circle.classList.remove('text-red-500');
                 circle.classList.add('text-yellow-400');
-                desc.innerText = "提示：你雖有一定防範意識，但在特定場景（如場域布置或特殊用語）仍存有漏洞。這往往是職業奧客發起訴訟的破口。";
+                desc.innerText = "提示：你雖有一定防範意識，但在特定場景（如行政留證或場域布置）仍存有漏洞。這往往是職業奧客發起訴訟的破口。";
             } else {
                 rating.innerText = "低風險安全";
                 rating.className = "text-green-400 font-bold";
-                scoreText.innerText = "✅ 安全";
+                scoreLabel.innerText = "✅ 安全";
+                scoreLabel.className = "absolute text-2xl font-bold text-green-400";
                 circle.classList.remove('text-red-500');
                 circle.classList.add('text-green-400');
                 desc.innerText = "恭喜：你的執業流程具備專業法律防禦思維。持續維持規範化的課前評估，是保護你職涯的最佳盾牌。";
             }
         }
+
+        // 初始化第一題
+        renderQuestion();
     </script>
 
 </body>
