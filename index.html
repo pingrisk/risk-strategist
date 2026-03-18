@@ -12,10 +12,12 @@
         .hero-pattern { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 30px 30px; }
         .glass-card { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); }
         .case-highlight { border-left: 4px solid #ef4444; background: rgba(239, 68, 68, 0.05); }
+        .tab-active { background: #2563eb; color: white; border-color: #2563eb; }
+        .pricing-card { border: 2px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        .pricing-card:hover { border-color: #2563eb; transform: scale(1.02); }
         .progress-bar { transition: width 0.4s ease; }
         .btn-option { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.05); }
         .btn-option:hover { transform: translateY(-2px); border-color: rgba(59, 130, 246, 0.5); background: rgba(30, 41, 59, 0.8); }
-        .tab-active { background: #2563eb; color: white; border-color: #2563eb; }
     </style>
 </head>
 <body class="selection:bg-blue-500/30">
@@ -23,20 +25,21 @@
     <!-- 導覽列 -->
     <nav class="fixed top-0 w-full z-50 glass-card px-6 py-5 border-b border-white/5">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-black italic tracking-tighter">PING <span class="text-blue-500">1Defense™</span></div>
-            <div class="flex items-center space-x-4">
-                <a href="#quiz" class="hidden md:block text-[10px] text-slate-400 font-bold uppercase tracking-widest hover:text-white transition-colors">風險自測</a>
-                <a href="#case-library" class="hidden md:block text-[10px] text-slate-400 font-bold uppercase tracking-widest hover:text-white transition-colors">案例庫</a>
-                <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="text-[10px] font-bold bg-blue-600 px-5 py-2.5 rounded-full hover:bg-blue-500 transition-all uppercase tracking-widest shadow-lg shadow-blue-900/40">索取大禮包</a>
+            <div class="text-2xl font-black italic tracking-tighter uppercase">PING <span class="text-blue-500">1Defense™</span></div>
+            <div class="hidden md:flex space-x-6 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <a href="#quiz" class="hover:text-white transition-colors">風險自測</a>
+                <a href="#case-library" class="hover:text-white transition-colors">案例解析</a>
+                <a href="#pricing" class="hover:text-white transition-colors">防禦方案</a>
             </div>
+            <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="text-[10px] font-bold bg-blue-600 px-5 py-2.5 rounded-full hover:bg-blue-500 transition-all uppercase tracking-widest shadow-lg shadow-blue-900/40">索取大禮包</a>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="relative pt-48 pb-24 px-6 hero-pattern">
         <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="inline-block px-4 py-1.5 mb-8 rounded-full bg-red-500/10 text-red-500 text-[10px] font-black tracking-[0.3em] uppercase border border-red-500/20">
-                Critical Alert: Professional Risk Management
+            <div class="inline-block px-4 py-1.5 mb-8 rounded-full bg-red-500/10 text-red-500 text-[10px] font-black tracking-[0.3em] uppercase border border-red-500/20 animate-pulse">
+                Professional Risk Management System
             </div>
             <h1 class="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-tight">
                 你的專業技術<br><span class="text-blue-500">救不了你的積蓄</span>
@@ -49,9 +52,58 @@
                 <a href="#quiz" class="accent-gradient px-12 py-6 rounded-2xl font-black text-lg shadow-2xl shadow-blue-900/40 hover:scale-105 transition-transform">
                     10秒啟動風險檢測
                 </a>
-                <a href="#case-library" class="glass-card px-12 py-6 rounded-2xl font-black text-lg border border-white/10 hover:bg-slate-800 transition-all">
-                    瀏覽司法案例庫 ➔
+                <a href="#pricing" class="glass-card px-12 py-6 rounded-2xl font-black text-lg border border-white/10 hover:bg-slate-800 transition-all">
+                    進階防禦方案
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 方案選擇區 (收銀台) -->
+    <section id="pricing" class="py-24 px-6 bg-slate-900/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4 tracking-tighter uppercase italic">1Defense™ 變現解決方案</h2>
+                <p class="text-slate-500 text-sm">拒絕執業裸奔，為你的專業職涯買保險</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 方案 1 -->
+                <div class="pricing-card glass-card p-10 rounded-[2.5rem] flex flex-col h-full">
+                    <h3 class="text-xl font-bold mb-2">基礎避雷禮包</h3>
+                    <div class="text-blue-500 font-black text-4xl mb-6">FREE</div>
+                    <ul class="text-xs text-slate-400 space-y-4 mb-12 flex-grow">
+                        <li>• 司法認證《課前評估表》範本</li>
+                        <li>• 215 萬判賠案重點清單</li>
+                        <li>• 初階知情同意書文字模組</li>
+                    </ul>
+                    <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="w-full py-4 rounded-xl border border-white/10 text-center font-bold text-xs uppercase hover:bg-white/5 transition-all">立即領取</a>
+                </div>
+
+                <!-- 方案 2 -->
+                <div class="pricing-card glass-card p-10 rounded-[2.5rem] flex flex-col h-full border-blue-500/50 relative overflow-hidden scale-105 shadow-2xl">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[8px] font-black px-4 py-1 uppercase tracking-widest">Most Popular</div>
+                    <h3 class="text-xl font-bold mb-2">避雷語法進階手冊</h3>
+                    <div class="text-blue-500 font-black text-4xl mb-6">$890 <span class="text-xs text-slate-600 line-through">$1,200</span></div>
+                    <ul class="text-xs text-slate-400 space-y-4 mb-12 flex-grow text-left">
+                        <li>• <span class="text-white font-bold">50+ 組</span> 保命語法對照表</li>
+                        <li>• 阻斷司法因果關係對話腳本</li>
+                        <li>• 114 年最新不起訴案完整解析</li>
+                    </ul>
+                    <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="w-full py-4 accent-gradient rounded-xl text-center font-bold text-xs uppercase shadow-lg shadow-blue-900/40 hover:scale-105 transition-transform">預約早鳥</a>
+                </div>
+
+                <!-- 方案 3 -->
+                <div class="pricing-card glass-card p-10 rounded-[2.5rem] flex flex-col h-full">
+                    <h3 class="text-xl font-bold mb-2">1對1 風險體檢</h3>
+                    <div class="text-blue-500 font-black text-4xl mb-6">$15,000<span class="text-xs">/Up</span></div>
+                    <ul class="text-xs text-slate-400 space-y-4 mb-12 flex-grow text-left">
+                        <li>• 工作室行政流程深度掃描</li>
+                        <li>• 專屬知情同意書客製校閱</li>
+                        <li>• 執業爭議法理救援諮詢</li>
+                    </ul>
+                    <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="w-full py-4 rounded-xl border border-white/10 text-center font-bold text-xs uppercase hover:bg-white/5 transition-all">聯繫軍師</a>
+                </div>
             </div>
         </div>
     </section>
@@ -59,115 +111,29 @@
     <!-- 互動測驗區 -->
     <section id="quiz" class="py-24 px-6">
         <div class="max-w-xl mx-auto glass-card rounded-[3rem] p-10 border border-white/10 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 left-0 h-1.5 bg-slate-800 w-full">
-                <div id="progress" class="h-full bg-blue-500 progress-bar" style="width: 0%"></div>
-            </div>
-
+            <div class="absolute top-0 left-0 h-1.5 bg-slate-800 w-full"><div id="progress" class="h-full bg-blue-500 progress-bar" style="width: 0%"></div></div>
             <div id="quiz-container">
                 <div class="flex justify-between items-center mb-10">
-                    <h2 class="text-xl font-bold flex items-center tracking-tight text-white">執業風險篩查</h2>
-                    <span id="q-count" class="text-[10px] text-slate-500 font-black uppercase tracking-widest">STEP 1 / 3</span>
+                    <h2 class="text-xl font-bold text-white">執業風險篩查</h2>
+                    <span id="q-count" class="text-[10px] text-slate-500 font-black uppercase">STEP 1 / 3</span>
                 </div>
-                
-                <div id="q-content">
-                    <p id="question" class="text-lg mb-10 font-medium leading-relaxed text-white">載入中...</p>
-                    <div class="grid grid-cols-1 gap-4" id="options-grid"></div>
-                </div>
+                <div id="q-content"><p id="question" class="text-lg mb-10 text-white font-medium">載入中...</p><div class="grid grid-cols-1 gap-4" id="options-grid"></div></div>
             </div>
-
-            <div id="result-container" class="hidden text-center">
-                <div class="mb-10">
-                    <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">檢測評級</h3>
-                    <span id="rating" class="text-3xl font-black text-red-500 uppercase tracking-tighter">RED ALERT</span>
-                </div>
-                <div class="mb-10 p-6 bg-slate-900/50 rounded-3xl border border-blue-500/30 text-left">
-                    <h4 class="text-blue-400 text-xs font-bold mb-4 uppercase tracking-widest">已獲取：語法避風港指南</h4>
-                    <div class="grid grid-cols-2 gap-3 mt-4">
-                        <div class="bg-red-500/10 border border-red-500/20 p-3 rounded-xl text-[10px] text-red-400 font-bold">✖ 喬 / 復位 / 矯正</div>
-                        <div class="bg-green-500/10 border border-green-500/20 p-3 rounded-xl text-[10px] text-green-400 font-bold text-right">✔ 排列優化 / 調整</div>
-                    </div>
-                </div>
-                <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="accent-gradient block w-full py-5 rounded-2xl font-black text-sm shadow-xl hover:scale-105 transition-transform uppercase tracking-widest">
-                    索取完整避雷大禮包
-                </a>
+            <div id="result-container" class="hidden text-center py-10">
+                <div class="mb-10"><h3 class="text-sm font-bold text-slate-500 uppercase mb-3">風險評級</h3><span id="rating" class="text-4xl font-black text-red-500 uppercase tracking-tighter">RED ALERT</span></div>
+                <p class="text-slate-400 text-sm mb-10">您的執業模式存在嚴重的行政防禦漏洞，建議立即導入 1Defense™ 系統。</p>
+                <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="accent-gradient block w-full py-5 rounded-2xl font-black text-sm uppercase shadow-xl">索取完整避雷大禮包</a>
             </div>
         </div>
     </section>
 
-    <!-- 固化案例庫板塊 -->
+    <!-- 案例庫板塊 -->
     <section id="case-library" class="py-32 px-6 bg-slate-900/50">
         <div class="max-w-5xl mx-auto">
-            <div class="mb-12 text-center md:text-left">
-                <h2 class="text-4xl font-black tracking-tight text-white mb-4 italic">1Defense™ 司法解析庫</h2>
-                <p class="text-slate-500 text-sm">點擊下方案件標籤，切換深度解析內容</p>
-            </div>
-
-            <!-- 案例切換器 (Tabs) -->
-            <div class="flex flex-wrap gap-3 mb-12" id="case-tabs">
+            <div class="mb-12"><h2 class="text-4xl font-black tracking-tight text-white mb-4 italic uppercase">1Defense™ 司法解析庫</h2><p class="text-slate-500 text-sm">揭開那些被隱瞞的職業慘案與無罪關鍵</p></div>
+            <div class="flex flex-wrap gap-3 mb-12" id="case-tabs"></div>
+            <div class="glass-card p-8 md:p-12 rounded-[3.5rem] border border-blue-500/20 shadow-2xl transition-all duration-500 min-h-[400px]" id="case-display">
                 <!-- 由 JS 動態生成 -->
-            </div>
-
-            <!-- 深度解析主視窗 -->
-            <div class="glass-card p-8 md:p-12 rounded-[3.5rem] border border-blue-500/20 shadow-2xl transition-all duration-500" id="case-display">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
-                    <div class="flex items-center">
-                        <span class="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse" id="case-status-dot"></span>
-                        <h2 class="text-2xl font-black tracking-tight text-white" id="display-title">載入中...</h2>
-                    </div>
-                    <span class="text-[10px] text-slate-500 font-bold tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full" id="display-verdict">LOADING</span>
-                </div>
-
-                <div class="prose prose-invert max-w-none mb-12">
-                    <div class="case-highlight p-6 rounded-2xl mb-8 text-white">
-                        <p class="text-slate-300 italic text-sm leading-relaxed" id="display-quote">載入中...</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                        <div>
-                            <h4 class="text-red-500 font-black text-xs uppercase tracking-widest mb-6 flex items-center">
-                                <span class="mr-2">✖</span> 司法格式化地雷
-                            </h4>
-                            <ul class="space-y-4 text-sm text-slate-400" id="display-bad-points"></ul>
-                        </div>
-                        <div>
-                            <h4 class="text-green-500 font-black text-xs uppercase tracking-widest mb-6 flex items-center">
-                                <span class="mr-2">✔</span> 1Defense™ 救贖路徑
-                            </h4>
-                            <ul class="space-y-4 text-sm text-slate-400" id="display-good-points"></ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center pt-8 border-t border-white/5">
-                    <p class="text-xs text-slate-500 mb-8 font-medium">需要此案件的完整「行政留證清單」？</p>
-                    <a href="https://forms.gle/m7qmXLwa1Nj9zMyk9" target="_blank" class="accent-gradient inline-block px-12 py-5 rounded-2xl font-black text-sm shadow-xl hover:scale-105 transition-transform uppercase tracking-widest">
-                        索取完整避雷手冊
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 1Defense™ 核心架構 (固化版) -->
-    <section class="py-32 px-6">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-black mb-20 tracking-tighter">1Defense™ 系統化防禦機制</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                <div class="glass-card p-10 rounded-[2.5rem] border border-white/5">
-                    <div class="text-blue-500 font-black text-5xl mb-6 opacity-20 italic">01</div>
-                    <h3 class="text-xl font-bold mb-4">行政留證</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">建立法官認可的「專業注意義務」證明，將口頭承諾轉化為司法證據。</p>
-                </div>
-                <div class="glass-card p-10 rounded-[2.5rem] border border-white/5">
-                    <div class="text-blue-500 font-black text-5xl mb-6 opacity-20 italic">02</div>
-                    <h3 class="text-xl font-bold mb-4">科學因果</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">運用生物力學邏輯阻斷傷害因果關係，讓數據成為妳的法庭證人。</p>
-                </div>
-                <div class="glass-card p-10 rounded-[2.5rem] border border-white/5">
-                    <div class="text-blue-500 font-black text-5xl mb-6 opacity-20 italic">03</div>
-                    <h3 class="text-xl font-bold mb-4">語法規避</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">隔離醫療敏感詞彙，確保所有的指導行為都在合法執業紅線內。</p>
-                </div>
             </div>
         </div>
     </section>
@@ -182,154 +148,102 @@
             中國醫運醫背景，跨足行政法務。我將數百份判決提煉為教練的「職業防火牆」。<br>
             <span class="text-blue-500 font-bold uppercase tracking-widest text-[10px] mt-4 block italic">Securing your career through data and law.</span>
         </p>
-        <div class="flex justify-center space-x-4">
-            <a href="https://threads.net/@ping_risk_strategist" target="_blank" class="text-xs text-slate-400 border border-white/10 px-8 py-4 rounded-full hover:bg-white/5 transition-all flex items-center shadow-inner">
-                關注 Threads 最新解析
-            </a>
+        <div class="flex justify-center space-x-6">
+            <a href="https://threads.net/@ping_risk_strategist" target="_blank" class="text-xs text-slate-500 font-bold uppercase underline decoration-blue-500 underline-offset-8">Threads</a>
+            <a href="https://instagram.com/ping_risk_strategist" target="_blank" class="text-xs text-slate-500 font-bold uppercase underline decoration-blue-500 underline-offset-8">Instagram</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-20 px-6 text-center border-t border-white/5 bg-slate-950">
-        <div class="text-2xl font-black italic mb-6">PING <span class="text-blue-500">1Defense™</span></div>
-        <p class="text-[10px] text-slate-600 tracking-[0.5em] uppercase font-bold mb-4">Risk Strategist Lab</p>
+        <div class="text-2xl font-black italic mb-6 uppercase">PING <span class="text-blue-500">1Defense™</span></div>
+        <p class="text-[10px] text-slate-600 tracking-[0.5em] uppercase font-bold mb-4">Risk Strategist Lab | The Cash Register is Active</p>
         <div class="text-[9px] text-slate-800">&copy; 2026 Powered by Ping Lab. All rights reserved.</div>
     </footer>
 
     <script>
-        // --- 案例庫數據庫：要在網頁新增文章，只需要在下面這個數組增加對象即可 ---
+        // 案例數據
         const casesData = [
             {
-                id: "case-215m",
                 tab: "215萬判賠案",
                 title: "高雄地院 112 醫字 7 號",
                 verdict: "GUILTY / 判賠 215 萬",
                 dot: "bg-red-500",
-                quote: "「教練雖具備多張國際證照，但其對學員執行之『徒手關節鬆動』已逾越動作指導範圍，實質構成醫療行為...」",
-                badPoints: [
-                    "用語誘發犯意：稱呼學員為「患者」。",
-                    "行政紀錄為零：口頭告知在法律上等於沒說。",
-                    "場域偽醫療化：使用診視床與白袍。"
-                ],
-                goodPoints: [
-                    "建立行政防火牆：落實課前評估紀錄。",
-                    "語法精準隔離：全面替換「矯正」字眼。",
-                    "責任風險分擔：簽署合規知情同意書。"
-                ]
+                quote: "「教練雖具備多張國際證照，但其對學員執行之『徒手關節鬆動』已逾越動作指導範圍，實質構成醫療行為。」",
+                badPoints: ["用語誘發犯意：稱呼學員為『患者』", "行政紀錄為零：口頭告知法律上等於沒說", "場域偽醫療化：使用診視床與白袍"],
+                goodPoints: ["建立行政防火牆：落實評估紀錄", "語法精準隔離：全面替換『矯正』字眼", "責任風險分擔：簽署合規同意書"]
             },
             {
-                id: "case-ribs",
+                tab: "大腿骨折斷案",
+                title: "國術館慘案 (教練引以為戒)",
+                verdict: "CRITICAL / 大腿骨斷裂",
+                dot: "bg-red-600",
+                quote: "「無視疼痛反饋，強行操作導致結構性斷裂。教練應建立強制停損機制。」",
+                badPoints: ["無視疼痛回報", "缺乏強制停損 SOP", "風險預告缺失"],
+                goodPoints: ["主動告知義務明確化", "行政停損對話腳本", "課前骨質風險篩查"]
+            },
+            {
                 tab: "肋骨骨裂案",
                 title: "新北地院 113 易 1416 號",
                 verdict: "NOT GUILTY / 無罪獲救",
                 dot: "bg-green-500",
-                quote: "「教練於正式授課前確實落實 20 分鐘身體篩查並有書面紀錄，已盡專業注意義務，排除過失預見可能性。」",
-                badPoints: [
-                    "忽略動作反饋：學員喊痛卻未停止紀錄。",
-                    "缺乏風險預告：未告知器材操作可能風險。",
-                    "單純口頭承諾：事後難以證明已盡告知義務。"
-                ],
-                goodPoints: [
-                    "書面篩查紀錄：建立法官認可的注意義務。",
-                    "明確疼痛停損：在同意書載明主動告知義務。",
-                    "即時處置紀錄：受傷當下的標準處置 SOP。"
-                ]
-            },
-            {
-                id: "case-spine",
-                tab: "頸椎突出案",
-                title: "台院 113 訴 1196 號",
-                verdict: "CIVIL EXEMPT / 民事免賠",
-                dot: "bg-blue-500",
-                quote: "「經生物力學鑑定，後仰動作不具備導致椎間盤『向後』突出之因果關係，科學證據阻斷賠償責任。」",
-                badPoints: [
-                    "缺乏力學解釋：無法解釋受傷機制與教學關聯。",
-                    "時序紀錄模糊：受傷時間點與訓練日誌對不起來。",
-                    "過度承諾效果：宣稱可以改善醫學病理構造。"
-                ],
-                goodPoints: [
-                    "引入鑑定思維：建立指導動作的方向性紀錄。",
-                    "強化醫療邊界：強調運動優化非醫療介入。",
-                    "數據留證：利用 InBody 等儀器紀錄初始狀態。"
-                ]
+                quote: "「教練於正式授課前確實執行 20 分鐘身體篩查並有書面紀錄，法官認定已盡專業注意義務。」",
+                badPoints: ["忽略動作細微反饋", "單純依賴口頭詢問", "器材操作風險未揭露"],
+                goodPoints: ["書面化功能篩查", "明確疼痛停損約定", "即時處置行政留證"]
             }
         ];
 
-        // --- 渲染案例庫邏輯 ---
-        function initCaseLibrary() {
-            const tabContainer = document.getElementById('case-tabs');
-            tabContainer.innerHTML = '';
-
-            casesData.forEach((c, index) => {
-                const btn = document.createElement('button');
-                btn.className = `px-6 py-3 rounded-full text-xs font-bold border border-white/10 hover:bg-blue-600/20 transition-all ${index === 0 ? 'tab-active' : 'bg-slate-800/40 text-slate-400'}`;
-                btn.innerText = c.tab;
-                btn.onclick = () => switchCase(index, btn);
-                tabContainer.appendChild(btn);
-            });
-
-            // 初始載入第一個
-            displayCase(0);
-        }
-
-        function switchCase(index, activeBtn) {
-            // 更新按鈕樣式
-            document.querySelectorAll('#case-tabs button').forEach(b => {
-                b.classList.remove('tab-active');
-                b.classList.add('bg-slate-800/40', 'text-slate-400');
-            });
-            activeBtn.classList.remove('bg-slate-800/40', 'text-slate-400');
-            activeBtn.classList.add('tab-active');
-
-            // 觸發顯示動畫與內容更新
-            const display = document.getElementById('case-display');
-            display.style.opacity = '0';
-            setTimeout(() => {
-                displayCase(index);
-                display.style.opacity = '1';
-            }, 300);
-        }
-
-        function displayCase(index) {
-            const data = casesData[index];
-            document.getElementById('display-title').innerText = data.title;
-            document.getElementById('display-verdict').innerText = data.verdict;
-            document.getElementById('display-quote').innerText = data.quote;
-            
-            // 處理圓點顏色
-            const dot = document.getElementById('case-status-dot');
-            dot.className = `w-3 h-3 rounded-full mr-3 animate-pulse ${data.dot}`;
-
-            // 處理清單內容
-            const badUl = document.getElementById('display-bad-points');
-            badUl.innerHTML = data.badPoints.map(p => `<li class="flex items-start"><span class="text-red-500 mr-2 font-bold">✖</span> <span>${p}</span></li>`).join('');
-            
-            const goodUl = document.getElementById('display-good-points');
-            goodUl.innerHTML = data.goodPoints.map(p => `<li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span> <span>${p}</span></li>`).join('');
-        }
-
-        // --- 互動測驗邏輯 (保持原有) ---
-        let currentQ = 0;
-        let riskScore = 0;
-        const quizData = [
-            { q: "1. 你是否在文案或對話中使用過「喬、復位、矯正、治療」等詞彙？", opts: [{ t: "是的，有時為了讓學員聽懂會用到", s: 40 }, { t: "從不使用，我都講「優化」或「調整」", s: 0 }] },
-            { q: "2. 你的工作室是否有擺放「診視床」或工作時穿著「白色醫袍」？", opts: [{ t: "有，為了展現權威感或操作需求", s: 40 }, { t: "沒有，維持訓練空間風格", s: 0 }] },
-            { q: "3. 你是否有對學員落實「書面課前評估紀錄」而非僅口頭詢問？", opts: [{ t: "有，每位學員都有完整書面紀錄", s: 0 }, { t: "沒有，通常只有口頭詢問", s: 40 }] }
+        // 測驗數據
+        const qData = [
+            { q: "1. 您是否在文案或對話中使用過「喬、矯正、治療、復位」等詞彙？", opts: [{ t: "是的，為了讓學員聽懂會用到", s: 40 }, { t: "從不使用，我都講「優化」或「調整」", s: 0 }] },
+            { q: "2. 您的工作室是否有擺放「診視床」或工作時穿著「白色醫袍」？", opts: [{ t: "有，為了展現權威感或操作需求", s: 40 }, { t: "沒有，維持訓練空間風格", s: 0 }] },
+            { q: "3. 您是否有對學員落實「書面課前評估紀錄」而非僅口頭詢問？", opts: [{ t: "沒有，通常只有口頭詢問", s: 40 }, { t: "有，每位學員都有完整書面紀錄", s: 0 }] }
         ];
 
+        let q = 0, score = 0;
+
+        function init() {
+            const tabs = document.getElementById('case-tabs');
+            casesData.forEach((c, i) => {
+                const btn = document.createElement('button');
+                btn.className = `px-6 py-3 rounded-full text-xs font-bold border border-white/10 ${i===0?'tab-active':'bg-slate-800/40 text-slate-400'}`;
+                btn.innerText = c.tab;
+                btn.onclick = () => {
+                    document.querySelectorAll('#case-tabs button').forEach(b=>b.className=`px-6 py-3 rounded-full text-xs font-bold border border-white/10 bg-slate-800/40 text-slate-400`);
+                    btn.className=`px-6 py-3 rounded-full text-xs font-bold border border-white/10 tab-active`;
+                    renderCase(i);
+                };
+                tabs.appendChild(btn);
+            });
+            renderCase(0);
+            renderQuiz();
+        }
+
+        function renderCase(i) {
+            const d = casesData[i];
+            const html = `
+                <div class="flex items-center mb-8"><span class="w-3 h-3 rounded-full mr-3 animate-pulse ${d.dot}"></span><h2 class="text-2xl font-black text-white tracking-tight">${d.title}</h2></div>
+                <div class="case-highlight p-6 rounded-2xl mb-10"><p class="text-slate-300 italic text-sm leading-relaxed">${d.quote}</p></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm">
+                    <div><h4 class="text-red-500 font-black mb-6 uppercase tracking-widest flex items-center"><span class="mr-2">✖</span> 司法格式化地雷</h4><ul class="text-slate-400 space-y-3">${d.badPoints.map(p=>`<li>• ${p}</li>`).join('')}</ul></div>
+                    <div><h4 class="text-green-500 font-black mb-6 uppercase tracking-widest flex items-center"><span class="mr-2">✔</span> 1Defense™ 救贖路徑</h4><ul class="text-slate-400 space-y-3">${d.goodPoints.map(p=>`<li>• ${p}</li>`).join('')}</ul></div>
+                </div>
+            `;
+            document.getElementById('case-display').innerHTML = html;
+        }
+
         function renderQuiz() {
-            const d = quizData[currentQ];
+            const d = qData[q];
             document.getElementById('question').innerText = d.q;
-            document.getElementById('q-count').innerText = `STEP ${currentQ + 1} / ${quizData.length}`;
-            document.getElementById('progress').style.width = `${(currentQ / quizData.length) * 100}%`;
-            const g = document.getElementById('options-grid');
-            g.innerHTML = '';
+            document.getElementById('q-count').innerText = `STEP ${q + 1} / 3`;
+            document.getElementById('progress').style.width = `${(q / 3) * 100}%`;
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
             d.opts.forEach(o => {
                 const b = document.createElement('button');
-                b.className = "btn-option group w-full text-left p-6 rounded-2xl bg-slate-800/40 hover:bg-slate-800 transition-all text-white shadow-inner";
-                b.innerHTML = `<span class="text-sm font-medium text-slate-300 group-hover:text-white">${o.t}</span>`;
-                b.onclick = () => { riskScore += o.s; currentQ++; if(currentQ < quizData.length) renderQuiz(); else finishQuiz(); };
-                g.appendChild(b);
+                b.className = "btn-option w-full text-left p-6 rounded-2xl bg-slate-800/40 text-white text-sm font-medium";
+                b.innerText = o.t;
+                b.onclick = () => { score+=o.s; q++; if(q<3) renderQuiz(); else finishQuiz(); };
+                grid.appendChild(b);
             });
         }
 
@@ -338,16 +252,11 @@
             document.getElementById('result-container').classList.remove('hidden');
             document.getElementById('progress').style.width = "100%";
             const r = document.getElementById('rating');
-            if(riskScore >= 80) { r.innerText = "RED ALERT"; r.className = "text-3xl font-black text-red-500 uppercase"; }
-            else if(riskScore >= 40) { r.innerText = "WARNING"; r.className = "text-3xl font-black text-yellow-400 uppercase"; }
-            else { r.innerText = "SECURE"; r.className = "text-3xl font-black text-green-400 uppercase"; }
+            r.innerText = score >= 80 ? "RED ALERT" : (score >= 40 ? "WARNING" : "SECURE");
+            r.className = `text-4xl font-black uppercase tracking-tighter ${score >= 80 ? 'text-red-500' : (score >= 40 ? 'text-yellow-400' : 'text-green-500')}`;
         }
 
-        // --- 初始化頁面 ---
-        window.onload = () => {
-            initCaseLibrary();
-            renderQuiz();
-        };
+        window.onload = init;
     </script>
 </body>
 </html>
